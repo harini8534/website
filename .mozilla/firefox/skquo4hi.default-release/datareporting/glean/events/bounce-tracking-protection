@@ -1,0 +1,4 @@
+{"timestamp":7359683,"category":"bounce.tracking.protection","name":"purge_action","extra":{"is_dry_run":"true","site_host":"wikipedia.org","bounce_time":"1764646959","success":"true","glean_timestamp":"1764652169544"}}
+{"timestamp":7359683,"category":"bounce.tracking.protection","name":"purge_action","extra":{"is_dry_run":"true","site_host":"youtube.com","bounce_time":"1764646895","success":"true","glean_timestamp":"1764652169544"}}
+{"timestamp":7359683,"category":"bounce.tracking.protection","name":"purge_action","extra":{"is_dry_run":"true","success":"true","site_host":"google.co.in","glean_timestamp":"1764652169544","bounce_time":"1764646895"}}
+{"timestamp":269996,"category":"glean","name":"restarted","extra":{"glean_timestamp":"1765163555097","glean.startup.date":"2025-12-08T08:42+05:30"},"execution_counter":1}

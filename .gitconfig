@@ -1,0 +1,7 @@
+[user]
+	name = Harini
+	email = cs245214117@bhc.edu.in
+[color]
+	ui = true
+[credential]
+	helper = store

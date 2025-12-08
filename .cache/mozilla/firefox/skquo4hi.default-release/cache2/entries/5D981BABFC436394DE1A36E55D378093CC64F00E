@@ -1,0 +1,661 @@
+// Helper to get accessToken from cookies
+function getAccessToken() {
+  const match = document.cookie.match(/(?:^|; )accessToken=([^;]*)/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+// Helper to get billing API base URL based on environment
+function getBillingApiUrl() {
+  const host = window.location.hostname;
+  switch (host) {
+    case 'order-dev.w3schools.com':
+    case 'localhost':
+    case '127.0.0.1':
+      return 'https://billing-stripe-api.w3sapi-dev.com';
+    case 'order-stage.w3schools.com':
+      return 'https://billing-stripe-api.w3sapi-stage.com';
+    default:
+      return 'https://billing-stripe-api.w3sapi.com';
+  }
+}
+
+// Helper to get checkout API base URL based on environment
+function getCheckoutApiUrl() {
+  const host = window.location.hostname;
+  switch (host) {
+    case 'order-local.w3schools.com':
+    case 'order-dev.w3schools.com':
+    case 'localhost':
+    case '127.0.0.1':
+      return 'https://billing-api-dev.w3schools.com';
+    case 'order-stage.w3schools.com':
+      return 'https://billing-api-stage.w3schools.com';
+    default:
+      return 'https://billing-api.w3schools.com';
+  }
+}
+
+// Helper to get full-access API base URL based on environment
+function getFullAccessApiUrl() {
+  const host = window.location.hostname;
+  switch (host) {
+    case 'order-dev.w3schools.com':
+    case 'localhost':
+    case '127.0.0.1':
+      return 'https://api.kai.w3sapi-dev.com';
+    case 'order-stage.w3schools.com':
+      return 'https://api.kai.w3sapi-stage.com';
+    default:
+      return 'https://api.kai.w3sapi.com';
+  }
+}
+
+function getProfileBaseUrl() {
+  const host = window.location.hostname;
+  switch (host) {
+    case 'order-dev.w3schools.com':
+    case 'localhost':
+    case '127.0.0.1':
+      return 'https://profile-dev.w3schools.com';
+    case 'order-stage.w3schools.com':
+      return 'https://profile-stage.w3schools.com';
+    default:
+      return 'https://profile.w3schools.com';
+  }
+}
+
+function getPathfinderBaseUrl() {
+  const host = window.location.hostname;
+  switch (host) {
+    case 'order-dev.w3schools.com':
+    case 'localhost':
+    case '127.0.0.1':
+      return 'https://pathfinder-dev.w3schools.com/';
+    case 'order-stage.w3schools.com':
+      return 'https://pathfinder-stage.w3schools.com/';
+    default:
+      return 'https://pathfinder.w3schools.com/';
+  }
+}
+
+function getPlansBaseUrl() {
+  const host = window.location.hostname;
+  switch (host) {
+    case 'order-dev.w3schools.com':
+    case 'localhost':
+    case '127.0.0.1':
+      return 'https://order-dev.w3schools.com/';
+    case 'order-stage.w3schools.com':
+      return 'https://order-stage.w3schools.com/';
+    default:
+      return 'https://plans.w3schools.com/';
+  }
+}
+
+// Utility: Get Pathfinder billing URL
+function getPathfinderBillingUrl() {
+  return getPathfinderBaseUrl() + 'billing';
+}
+
+function getLoginUrl(isYearly) {
+  const profileBase = getProfileBaseUrl();
+  // const pathfinderBase = getPathfinderBaseUrl();
+  // const redirectUrl = encodeURIComponent(
+  //   isYearly ? `${pathfinderBase}billing?subscription=yearly` : `${pathfinderBase}billing?subscription=monthly`,
+  // );
+  const plansBase = getPlansBaseUrl();
+  const redirectUrl = encodeURIComponent(isYearly ? `${plansBase}plans?subscription=yearly` : `${plansBase}plans?subscription=monthly`);
+  return `${profileBase}/sign-up?redirect_url=${redirectUrl}`;
+}
+
+function getCampusFullAccessUrl() {
+  return 'https://campus.w3schools.com/cart/40321653669945:1?checkout';
+}
+
+// Helper to make authenticated API calls to billing API
+async function apiFetch(endpoint, options = {}) {
+  const token = getAccessToken();
+  if (!token) throw new Error('No access token found');
+
+  const baseUrl = getBillingApiUrl();
+  const url = `${baseUrl}${endpoint}`;
+
+  const headers = options.headers ? { ...options.headers } : {};
+  headers['Authorization'] = `Bearer ${token}`;
+
+  return fetch(url, { ...options, headers });
+}
+
+// Function to fetch user's current plan from account API
+async function fetchUserAccount() {
+  try {
+    const response = await apiFetch('/api/v3/account');
+    if (!response.ok) {
+      throw new Error('Failed to fetch user account');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching user account:', error);
+    return null;
+  }
+}
+
+// Function to create Stripe checkout session
+async function createCheckoutSession(product) {
+  try {
+    const token = getAccessToken();
+    if (!token) throw new Error('No access token found');
+
+    const checkoutUrl = getCheckoutApiUrl();
+    const url = `${checkoutUrl}/create-checkout-session`;
+
+    let promoCode = 'BLACKWEEK25PLUS';
+
+    if (product === 'full-access-course') {
+      promoCode = 'BLACKWEEK25FULLACCESS';
+    } else if (product === 'plus_yearly') {
+      promoCode = 'BLACKWEEK25PLUSYEARLY';
+    }
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ product, promoCode }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to create checkout session');
+    }
+
+    const data = await response.json();
+    return data.url; // Return the Stripe checkout URL
+  } catch (error) {
+    console.error('Error creating checkout session:', error);
+    throw error;
+  }
+}
+
+// Function to handle plan purchase
+async function handlePlanPurchase(product) {
+  try {
+    // Show loader during checkout session creation
+    showLoader();
+
+    const checkoutUrl = await createCheckoutSession(product);
+
+    // Redirect to Stripe checkout
+    window.location.href = checkoutUrl;
+  } catch (error) {
+    console.error('Error handling plan purchase:', error);
+    hideLoader();
+    // You can add error handling UI here if needed
+    alert('Failed to create checkout session. Please try again.');
+  }
+}
+
+// Function to fetch user's full access status
+async function fetchFullAccessStatus() {
+  try {
+    const token = getAccessToken();
+    if (!token) throw new Error('No access token found');
+    const baseUrl = getFullAccessApiUrl();
+    const url = `${baseUrl}/pathfinder/profile-api/full-access`;
+    const response = await fetch(url, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!response.ok) throw new Error('Failed to fetch full access status');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching full access status:', error);
+    return null;
+  }
+}
+
+// Function to disable all buttons
+function disableButtons() {
+  const buttons = document.querySelectorAll('.free-btn, .get_w3schools_plus, .full-access-btn');
+  buttons.forEach(btn => {
+    btn.classList.add('btn-disabled');
+  });
+}
+
+// Function to enable all buttons
+function enableButtons() {
+  const buttons = document.querySelectorAll('.free-btn, .get_w3schools_plus, .full-access-btn');
+  buttons.forEach(btn => {
+    btn.classList.remove('btn-disabled');
+  });
+}
+
+// Function to hide loader
+function hideLoader() {
+  const loader = document.getElementById('loader-overlay');
+  if (loader) {
+    loader.style.display = 'none';
+  }
+}
+
+// Function to show loader
+function showLoader() {
+  const loader = document.getElementById('loader-overlay');
+  if (loader) {
+    loader.style.display = 'flex';
+  }
+}
+
+function showFreeTrialBadge() {
+  const plusTitle = document.querySelector('.plan-title.plus');
+  plusTitle.classList.add('free-trial');
+}
+
+// Function to set up plan button click handlers
+function setupPlanButtons() {
+  const accessToken = getAccessToken();
+
+  // Plus plan buttons
+  document.querySelectorAll('.get_w3schools_plus').forEach(plusButton => {
+    // Remove previous listeners by cloning
+    const newBtn = plusButton.cloneNode(true);
+    plusButton.parentNode.replaceChild(newBtn, plusButton);
+
+    if (!accessToken) {
+      const toggle = document.getElementById('planToggle');
+      const isYearly = toggle && toggle.checked;
+      newBtn.href = getLoginUrl(isYearly);
+      newBtn.onclick = null;
+    } else {
+      newBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const toggle = document.getElementById('planToggle');
+        const product = toggle && toggle.checked ? 'plus_yearly' : 'plus_monthly';
+        handlePlanPurchase(product);
+      });
+    }
+  });
+
+  // Full Access buttons
+  document.querySelectorAll('.full-access-btn').forEach(fullAccessButton => {
+    const newBtn = fullAccessButton.cloneNode(true);
+    fullAccessButton.parentNode.replaceChild(newBtn, fullAccessButton);
+
+    if (!accessToken) {
+      newBtn.href = getCampusFullAccessUrl();
+      newBtn.onclick = null;
+    } else {
+      newBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        handlePlanPurchase('full-access-course');
+      });
+    }
+  });
+
+  // Free buttons remain as regular links
+}
+
+// Utility: Detect plan type from API response and full access status
+function detectPlanType(userAccount, fullAccessStatus) {
+  // Check full access first
+  if (fullAccessStatus && fullAccessStatus.hasFullAccess) {
+    return { type: 'full_access', name: 'Full Access', priceSlug: 'full-access-course' };
+  }
+  if (!userAccount || !userAccount.currentPlan) {
+    return { type: 'free', name: 'Free', priceSlug: 'free' };
+  }
+  const plan = userAccount.currentPlan;
+  const priceSlug = plan.priceSlug || plan;
+  const name = plan.name || 'Free';
+  // Plus plans
+  if (priceSlug === 'plus-monthly') {
+    return { type: 'plus_monthly', name: name, priceSlug: priceSlug };
+  }
+  if (priceSlug === 'plus-yearly') {
+    return { type: 'plus_yearly', name: name, priceSlug: priceSlug };
+  }
+  // Free plans
+  if (
+    priceSlug === 'free-daily' ||
+    priceSlug === 'free-monthly' ||
+    priceSlug === 'free-yearly' ||
+    priceSlug === 'free' ||
+    name.toLowerCase().includes('free') ||
+    plan.amount === 0
+  ) {
+    return { type: 'free', name: name, priceSlug: priceSlug };
+  }
+  // Fallback to free
+  return { type: 'free', name: name, priceSlug: priceSlug };
+}
+
+// Utility: Get plan display name
+function getPlanDisplayName(planInfo) {
+  if (!planInfo) return 'Free';
+  return planInfo.name || 'Free';
+}
+
+function updateCurrentPlanButtons(planType, userAccount) {
+  // Reset all button texts to default and restore buttons if needed
+  document.querySelectorAll('.free-btn').forEach(btn => {
+    btn.style.display = '';
+    btn.textContent = 'Start as a Free user';
+    if (
+      btn.nextElementSibling &&
+      (btn.nextElementSibling.classList.contains('current-plan-label') || btn.nextElementSibling.classList.contains('free-included-label'))
+    ) {
+      btn.nextElementSibling.remove();
+    }
+  });
+  document.querySelectorAll('.get_w3schools_plus').forEach(btn => {
+    btn.style.display = '';
+    btn.textContent = 'Get W3Schools Plus';
+    if (
+      btn.nextElementSibling &&
+      (btn.nextElementSibling.classList.contains('current-plan-label') || btn.nextElementSibling.classList.contains('plus-included-label'))
+    ) {
+      btn.nextElementSibling.remove();
+    }
+  });
+  document.querySelectorAll('.full-access-btn').forEach(btn => {
+    btn.style.display = '';
+    btn.textContent = 'Get Full Access';
+    if (btn.nextElementSibling && btn.nextElementSibling.classList.contains('current-plan-label')) {
+      btn.nextElementSibling.remove();
+    }
+  });
+
+  if (planType === 'free') {
+    // Free plan: label on Free card/column
+    document.querySelectorAll('#plan-free .free-btn, .compare-table .free-btn').forEach(btn => {
+      const label = document.createElement('div');
+      label.className = 'current-plan-label';
+      label.textContent = '(Your current plan)';
+      btn.style.display = 'none';
+      btn.parentNode.insertBefore(label, btn.nextSibling);
+    });
+  } else if (planType === 'plus_monthly' || planType === 'plus_yearly') {
+    // Plus plan: label on Plus card/column, Free included label on Free card/column
+
+    const isOnFreeTrial = userAccount?.currentSubscription?.status === 'trialing';
+
+    document.querySelectorAll('#plan-plus .get_w3schools_plus, .compare-table .get_w3schools_plus').forEach(btn => {
+      const label = document.createElement('div');
+      label.className = 'current-plan-label';
+      label.textContent = isOnFreeTrial ? "You're currently on a free trial" : '(Your current plan)';
+      btn.style.display = isOnFreeTrial ? '' : 'none';
+      if (isOnFreeTrial && btn.parentElement.classList.contains('plus-card-content')) {
+        btn.textContent = 'Upgrade to Plus ‚Äì Keep Your Benefits';
+      }
+      btn.parentNode.insertBefore(label, btn.previousSibling);
+    });
+    document.querySelectorAll('#plan-free .free-btn, .compare-table .free-btn').forEach(btn => {
+      const label = document.createElement('div');
+      label.className = 'free-included-label';
+      label.textContent = '(You‚Äôre on Plus. Includes all Free features)';
+      btn.style.display = 'none';
+      btn.parentNode.insertBefore(label, btn.nextSibling);
+    });
+  } else if (planType === 'full_access') {
+    // Full Access plan: label on Full Access card/column, Plus included label on Plus card/column, Free included label on Free card/column
+    document.querySelectorAll('#plan-full .full-access-btn, .compare-table .full-access-btn').forEach(btn => {
+      const label = document.createElement('div');
+      label.className = 'current-plan-label';
+      label.textContent = '(Your current plan)';
+      btn.style.display = 'none';
+      btn.parentNode.insertBefore(label, btn.nextSibling);
+    });
+    document.querySelectorAll('#plan-plus .get_w3schools_plus, .compare-table .get_w3schools_plus').forEach(btn => {
+      const label = document.createElement('div');
+      label.className = 'plus-included-label';
+      label.textContent = '(Included in Full Access)';
+      btn.style.display = 'none';
+      btn.parentNode.insertBefore(label, btn.nextSibling);
+    });
+    document.querySelectorAll('#plan-free .free-btn, .compare-table .free-btn').forEach(btn => {
+      const label = document.createElement('div');
+      label.className = 'free-included-label';
+      label.textContent = '(Included in Full Access)';
+      btn.style.display = 'none';
+      btn.parentNode.insertBefore(label, btn.nextSibling);
+    });
+  }
+}
+
+// Main initialization function
+async function initializePricingPage() {
+  try {
+    showLoader();
+    disableButtons();
+    const plusButton = document.querySelector('.get_w3schools_plus');
+    const fullAccessButton = document.querySelector('.full-access-btn');
+    const freeButton = document.querySelector('.free-btn');
+    const toggle = document.getElementById('planToggle');
+
+    // Helper: Set all buttons to login/signup
+    function setAllButtonsToLogin() {
+      const isYearly = toggle && toggle.checked;
+      const loginUrl = getLoginUrl(isYearly);
+      const plusButtons = document.querySelectorAll('.get_w3schools_plus');
+      const fullAccessButtons = document.querySelectorAll('.full-access-btn');
+      const freeButtons = document.querySelectorAll('.free-btn');
+      plusButtons.forEach(btn => {
+        if (btn) {
+          btn.href = loginUrl;
+          btn.onclick = null;
+          btn.classList.remove('btn-disabled');
+        }
+      });
+      fullAccessButtons.forEach(btn => {
+        if (btn) {
+          btn.href = loginUrl;
+          btn.onclick = null;
+          btn.classList.remove('btn-disabled');
+        }
+      });
+      freeButtons.forEach(btn => {
+        if (btn) {
+          btn.href = loginUrl;
+          btn.onclick = null;
+          btn.classList.remove('btn-disabled');
+        }
+      });
+    }
+
+    // Helper: Set all buttons to /billing
+    function setAllButtonsToBilling() {
+      const billingUrl = getPathfinderBillingUrl();
+      const plusButtons = document.querySelectorAll('.get_w3schools_plus');
+      const fullAccessButtons = document.querySelectorAll('.full-access-btn');
+      const freeButtons = document.querySelectorAll('.free-btn');
+      plusButtons.forEach(btn => {
+        if (btn) {
+          btn.href = billingUrl;
+          btn.onclick = null;
+          btn.classList.remove('btn-disabled');
+        }
+      });
+      fullAccessButtons.forEach(btn => {
+        if (btn) {
+          btn.href = billingUrl;
+          btn.onclick = null;
+          btn.classList.remove('btn-disabled');
+        }
+      });
+      freeButtons.forEach(btn => {
+        if (btn) {
+          btn.href = billingUrl;
+          btn.onclick = null;
+          btn.classList.remove('btn-disabled');
+        }
+      });
+    }
+
+    // Helper: Set button(s) to checkout
+    function setButtonToCheckout(buttons, product) {
+      if (!buttons) return;
+      if (NodeList.prototype.isPrototypeOf(buttons) || Array.isArray(buttons)) {
+        buttons.forEach(btn => {
+          btn.href = '#';
+          btn.classList.remove('btn-disabled');
+          btn.onclick = function (e) {
+            e.preventDefault();
+            handlePlanPurchase(product);
+          };
+        });
+      } else {
+        buttons.href = '#';
+        buttons.classList.remove('btn-disabled');
+        buttons.onclick = function (e) {
+          e.preventDefault();
+          handlePlanPurchase(product);
+        };
+      }
+    }
+
+    // Helper: Set button(s) to /billing
+    function setButtonToBilling(buttons) {
+      const billingUrl = getPathfinderBillingUrl();
+      if (!buttons) return;
+      if (NodeList.prototype.isPrototypeOf(buttons) || Array.isArray(buttons)) {
+        buttons.forEach(btn => {
+          btn.href = billingUrl;
+          btn.onclick = null;
+          btn.classList.remove('btn-disabled');
+        });
+      } else {
+        buttons.href = billingUrl;
+        buttons.onclick = null;
+        buttons.classList.remove('btn-disabled');
+      }
+    }
+
+    // Helper: Disable button(s)
+    function disableButton(buttons) {
+      if (!buttons) return;
+      if (NodeList.prototype.isPrototypeOf(buttons) || Array.isArray(buttons)) {
+        buttons.forEach(btn => {
+          btn.classList.add('btn-disabled');
+          btn.onclick = null;
+          btn.href = '#';
+        });
+      } else {
+        buttons.classList.add('btn-disabled');
+        buttons.onclick = null;
+        buttons.href = '#';
+      }
+    }
+
+    // Check for accessToken
+    const accessToken = getAccessToken();
+    if (!accessToken) {
+      // Not logged in: all buttons go to login/signup
+      setAllButtonsToLogin();
+      enableButtons();
+      setupPlanButtons();
+      hideLoader();
+
+      return;
+    }
+
+    // Fetch user account and full access status in parallel
+    const [userAccount, fullAccessStatus] = await Promise.all([fetchUserAccount(), fetchFullAccessStatus()]);
+    // Use new plan detection with both values
+    const planInfo = detectPlanType(userAccount, fullAccessStatus);
+
+    // Button logic
+    const plusButtons = document.querySelectorAll('.get_w3schools_plus');
+    const fullAccessButtons = document.querySelectorAll('.full-access-btn');
+    const freeButtons = document.querySelectorAll('.free-btn');
+
+    if (planInfo.type === 'free') {
+      // Free user: Plus and Full Access enabled, Free button goes to /billing
+      setButtonToCheckout(plusButtons, toggle && toggle.checked ? 'plus_yearly' : 'plus_monthly');
+      setButtonToCheckout(fullAccessButtons, 'full-access-course');
+      setButtonToBilling(freeButtons);
+    } else if (planInfo.type === 'plus_monthly' || planInfo.type === 'plus_yearly') {
+      // Plus user: Only Full Access enabled, others go to /billing
+      setButtonToBilling(plusButtons);
+      setButtonToCheckout(fullAccessButtons, 'full-access-course');
+      setButtonToBilling(freeButtons);
+
+      // if (userAccount?.currentSubscription?.status === 'trialing') {
+      //   showFreeTrialBadge();
+      // }
+    } else if (planInfo.type === 'full_access') {
+      // Full access: all buttons go to /billing
+      setAllButtonsToBilling();
+    } else {
+      // Fallback: all buttons to billing
+      setAllButtonsToBilling();
+    }
+
+    updateCurrentPlanButtons(planInfo.type, userAccount);
+
+    hideLoader();
+    enableButtons();
+    setupPlanButtons();
+  } catch (error) {
+    hideLoader();
+    enableButtons();
+    setupPlanButtons();
+  }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+  initializePricingPage();
+});
+
+// Export for use in other scripts
+window.authHelpers = {
+  getAccessToken,
+  apiFetch,
+  getBillingApiUrl,
+  getCheckoutApiUrl,
+  fetchUserAccount,
+  createCheckoutSession,
+  handlePlanPurchase,
+  disableButtons,
+  enableButtons,
+  hideLoader,
+  showLoader,
+  setupPlanButtons,
+  initializePricingPage,
+};
+o#ªE·       i*yi*yHÂ<oi*y   U    O^partitionKey=%28https%2Cw3schools.com%29,:https://order.w3schools.com/plans/auth.js necko:classified 1 strongly-framed 1 security-info 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 request-method GET response-head HTTP/2 200 
+content-type: application/javascript
+content-length: 20645
+last-modified: Thu, 27 Nov 2025 13:26:59 GMT
+x-amz-server-side-encryption: AES256
+x-amz-version-id: JsfF3jXoUz9eXPr9sLbIsMQygavuvt7j
+accept-ranges: bytes
+server: AmazonS3
+date: Fri, 28 Nov 2025 13:27:21 GMT
+etag: "9cfe2925d0f6f9c287fe6ec202d311f1"
+x-cache: Hit from cloudfront
+via: 1.1 f406af12d8877246aa8a59ae1a29e1e8.cloudfront.net (CloudFront)
+x-amz-cf-pop: HYD57-P2
+x-amz-cf-id: kTHb2V4kolKfvmtVQnsObgGtvXp3TTDkW6SXs8DZAyDzA3eEHA1IUQ==
+age: 54733
+content-security-policy: default-src 'self'; img-src 'self' data:; connect-src https://organizations-api.w3sapi.com https://billing-api.w3schools.com https://profile.w3schools.com https://api.kai.w3sapi.com https://billing-stripe-api.w3sapi.com; script-src 'self' https://nav.w3schools.com; frame-ancestors https://nav.w3schools.com; frame-src 'self' https://nav.w3schools.com; style-src 'self' 'unsafe-inline' https://nav.w3schools.com;
+X-Firefox-Spdy: h2
+ original-response-headers content-type: application/javascript
+content-length: 20645
+last-modified: Thu, 27 Nov 2025 13:26:59 GMT
+x-amz-server-side-encryption: AES256
+x-amz-version-id: JsfF3jXoUz9eXPr9sLbIsMQygavuvt7j
+accept-ranges: bytes
+server: AmazonS3
+date: Fri, 28 Nov 2025 13:27:21 GMT
+etag: "9cfe2925d0f6f9c287fe6ec202d311f1"
+x-cache: Hit from cloudfront
+via: 1.1 f406af12d8877246aa8a59ae1a29e1e8.cloudfront.net (CloudFront)
+x-amz-cf-pop: HYD57-P2
+x-amz-cf-id: kTHb2V4kolKfvmtVQnsObgGtvXp3TTDkW6SXs8DZAyDzA3eEHA1IUQ==
+age: 54733
+content-security-policy: default-src 'self'; img-src 'self' data:; connect-src https://organizations-api.w3sapi.com https://billing-api.w3schools.com https://profile.w3schools.com https://api.kai.w3sapi.com https://billing-stripe-api.w3sapi.com; script-src 'self' https://nav.w3schools.com; frame-ancestors https://nav.w3schools.com; frame-src 'self' https://nav.w3schools.com; style-src 'self' 'unsafe-inline' https://nav.w3schools.com;
+X-Firefox-Spdy: h2
+ ctid 2 uncompressed-len 0 net-response-time-onstart 130 net-response-time-onstop 130   P•

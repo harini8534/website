@@ -1,0 +1,1829 @@
+#tnb-search-suggestions {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 15px;
+  background-color: #fff;
+  color: #000;
+  width: 300px;
+  top: 49px;
+  left: 507px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+#tnb-search-suggestions .search_item {
+  background-color: #fff;
+  color: #777;
+  text-decoration: none;
+  text-align: left;
+  display: block;
+  padding: 10px 26px;
+  width: 100%;
+  opacity: 0.95;
+  border: none;
+  cursor: pointer;
+}
+#tnb-search-suggestions .search_item:hover {
+  color: #000;
+  opacity: 1;
+}
+#tnb-search-suggestions .span_search {
+  background-color: #ffecee;
+}
+#tnb-search-suggestions .search_active {
+  background-color: #ffecee !important;
+  color: #000 !important;
+}
+#tnb-search-suggestions .search_active .span_search {
+  background-color: #ffccd1;
+}
+@media (max-width: 954px) {
+  #tnb-search-suggestions {
+    left: 378px;
+  }
+}
+@media (max-width: 828px) {
+  #tnb-search-suggestions {
+    left: 10px;
+    width: 91%;
+  }
+}
+
+#tnb-profile-dropdown {
+  display: block;
+  position: fixed;
+  z-index: 99999;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  width: 350px;
+  min-width: 350px;
+  top: 56px;
+  right: 0;
+  text-align: left;
+  max-width: 100% !important;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+@media (max-width: 500px) {
+  #tnb-profile-dropdown {
+    right: auto !important;
+    left: 0 !important;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 0px;
+  }
+}
+#tnb-profile-dropdown #tnb-profile-dropdown-bottom-spacer {
+  outline: none;
+  cursor: default;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  height: 56px;
+}
+#tnb-profile-dropdown > .inner-wrapper {
+  background-color: #fff;
+  color: #212121;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e3e6e8;
+  border-radius: 0 0 8px 8px;
+}
+#tnb-profile-dropdown .access-badge {
+  min-width: 80px;
+  padding: 8px;
+  padding-top: 8px;
+  margin: 0px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 500;
+}
+#tnb-profile-dropdown .access-badge-green {
+  background-color: #e7f3ef;
+  color: #04aa6d;
+  border: 1px solid #d1e7e0;
+  cursor: default;
+}
+#tnb-profile-dropdown .access-badge-blue {
+  background-color: #fcfcfc;
+  color: rgb(82, 132, 248);
+  border: 1px solid rgb(82, 132, 248);
+  cursor: default;
+}
+#tnb-profile-dropdown .access-badge-purple {
+  color: #ffffff;
+  background-color: #9761f2;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+}
+#tnb-profile-dropdown .access-badge-purple:hover {
+  text-decoration: underline;
+}
+#tnb-profile-dropdown .user-header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#tnb-profile-dropdown .user-header .user-info .user-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+  margin-bottom: 4px;
+}
+#tnb-profile-dropdown .user-header .user-info .open-profile {
+  margin-left: -15px;
+  margin-top: -15px;
+  color: #212121;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+#tnb-profile-dropdown .user-header .user-info .open-profile:hover {
+  text-decoration: underline;
+  background: none;
+}
+#tnb-profile-dropdown .user-header .user-info .open-profile i {
+  color: #282a35;
+  font-size: 12px;
+}
+#tnb-profile-dropdown .user-header .user-info .open-profile svg path {
+  stroke: #212121;
+}
+#tnb-profile-dropdown .current-progress {
+  margin-top: -30px;
+  padding: 16px;
+}
+#tnb-profile-dropdown .current-progress .course-info {
+  margin-bottom: 0px;
+  padding: 12px;
+  border: 1px solid #e3e6e8;
+  border-radius: 8px;
+  position: relative;
+  background-color: #fff;
+}
+#tnb-profile-dropdown .current-progress .course-info .course-type {
+  color: #212121;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+#tnb-profile-dropdown .current-progress .course-info .progress-wrapper {
+  margin-bottom: 16px;
+}
+#tnb-profile-dropdown .current-progress .course-info .progress-wrapper .progress-label {
+  color: rgba(33, 33, 33, 0.6);
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+#tnb-profile-dropdown .current-progress .course-info .progress-wrapper .progress-bar {
+  background-color: #e7e9eb;
+  border-radius: 100px;
+  height: 6px;
+  overflow: hidden;
+}
+#tnb-profile-dropdown .current-progress .course-info .progress-wrapper .progress-bar .progress {
+  background-color: #04aa6d;
+  height: 100%;
+}
+#tnb-profile-dropdown .current-progress .course-info .last-activity .label {
+  color: rgba(33, 33, 33, 0.6);
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+#tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+#tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper .label {
+  color: rgba(33, 33, 33, 0.6);
+  font-size: 12px;
+  font-weight: normal;
+}
+#tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper .resume-link {
+  color: #04aa6d;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+}
+#tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper .resume-link:hover {
+  text-decoration: underline;
+  background: none;
+}
+#tnb-profile-dropdown .current-progress .course-info .last-activity .lesson-name {
+  color: #212121;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+#tnb-profile-dropdown .current-progress .course-info > .resume-link {
+  display: none;
+}
+#tnb-profile-dropdown a.open-profile {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: #212121;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600 !important;
+}
+#tnb-profile-dropdown .-nav-menu a {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: #212121;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600 !important;
+  gap: 15px;
+}
+#tnb-profile-dropdown .-nav-menu a i {
+  margin: 0 3px;
+  width: 16px;
+  font-size: 16px;
+  color: #666;
+}
+#tnb-profile-dropdown .-nav-menu a i.fa-id-card-o {
+  font-size: 15px;
+}
+#tnb-profile-dropdown .-nav-menu a svg {
+  color: #212121;
+}
+.darkpagetheme #tnb-profile-dropdown .-nav-menu a svg {
+  color: #fff;
+}
+#tnb-profile-dropdown .-nav-menu a:hover {
+  background-color: #f3f4f6;
+}
+#tnb-profile-dropdown .-nav-menu a.logout {
+  color: #e51400;
+}
+#tnb-profile-dropdown .-nav-menu a.logout i {
+  color: #e51400;
+}
+#tnb-profile-dropdown .-nav-menu a.logout svg {
+  color: #e51400;
+}
+#tnb-profile-dropdown .-nav-menu .profile-menu-divider {
+  height: 1px;
+  background-color: #e3e6e8;
+  margin: 4px 0;
+}
+#tnb-profile-dropdown .tnb-profile-chevron-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14px;
+  height: 14px;
+  width: 14px;
+  min-height: 14px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-color: #f1f1f1;
+  transition: background-color 0.2s;
+  padding: 0;
+  cursor: pointer;
+  z-index: 9999;
+}
+#tnb-profile-dropdown .tnb-profile-chevron-btn .profile-chevron {
+  transition: transform 0.3s ease;
+  display: block;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  background-color: #f1f1f1;
+}
+#tnb-profile-dropdown .tnb-profile-chevron-btn.active .profile-chevron {
+  transform: rotate(180deg);
+  background-color: #f1f1f1;
+  border-radius: 50%;
+}
+#tnb-profile-dropdown .tnb-profile-chevron-btn:hover {
+  background-color: #f1f1f1;
+  border-radius: 50%;
+}
+#tnb-profile-dropdown .tnb-profile-chevron-btn:focus {
+  outline: none !important;
+}
+#tnb-profile-dropdown .tnb-profile-chevron-btn:focus-visible {
+  background-color: #e6e6e6 !important;
+}
+.darkpagetheme #tnb-profile-dropdown .tnb-profile-chevron-btn {
+  background-color: #ffffff !important;
+}
+
+.darkpagetheme #tnb-profile-dropdown > .inner-wrapper {
+  background-color: #1d2a35;
+  border-color: #38444d;
+  color: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown .access-badge-green {
+  background-color: rgba(4, 170, 109, 0.1);
+  border-color: rgba(4, 170, 109, 0.2);
+  color: #04aa6d;
+}
+.darkpagetheme #tnb-profile-dropdown .access-badge-purple {
+  background-color: rgba(151, 99, 246, 0.1);
+  border-color: rgba(151, 99, 246, 0.2);
+  color: #9763f6;
+}
+.darkpagetheme #tnb-profile-dropdown .user-header {
+  border-color: #38444d;
+}
+.darkpagetheme #tnb-profile-dropdown .user-header .user-info .user-name {
+  color: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown .user-header .user-info .open-profile {
+  color: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown .user-header .user-info .open-profile svg path {
+  stroke: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress {
+  border-color: #38444d;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info {
+  background-color: #1d2a35;
+  border-color: #38444d;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .course-type {
+  color: #ffffff;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .course-name {
+  color: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .progress-wrapper .progress-label {
+  color: #ffffff;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .progress-wrapper .progress-bar {
+  background-color: #ffffff;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .last-activity .label {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper .label {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: normal;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper svg path {
+  stroke: #ffffff;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .last-activity .label-wrapper .resume-link {
+  color: #ffffff;
+}
+.darkpagetheme #tnb-profile-dropdown .current-progress .course-info .last-activity .lesson-name {
+  color: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown a {
+  color: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown a svg {
+  color: #fff;
+}
+.darkpagetheme #tnb-profile-dropdown a i {
+  color: #9eb2bd;
+}
+.darkpagetheme #tnb-profile-dropdown a:hover {
+  background-color: #38444d;
+}
+.darkpagetheme #tnb-profile-dropdown a.logout {
+  color: #e51400;
+}
+.darkpagetheme #tnb-profile-dropdown a.logout i {
+  color: #e51400;
+}
+.darkpagetheme #tnb-profile-dropdown .profile-menu-divider {
+  background-color: #38444d;
+}
+
+@media (max-width: 954px) {
+  #tnb-profile-dropdown {
+    right: 10px;
+  }
+}
+@media (max-width: 500px) {
+  #tnb-profile-dropdown {
+    right: auto !important;
+    left: 0 !important;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 0px;
+  }
+}
+#tnb-login-dropdown-loginForm,
+#tnb-signup-dropdown-signupForm,
+#tnb-signup-dropdown-emailConfirmationForm,
+#tnb-signup-dropdown-reset-password-form,
+#tnb-signup-dropdown-confirm-reset-password-form {
+  width: 400px;
+  top: 56px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 56px);
+  z-index: 10;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm,
+.darkpagetheme #tnb-signup-dropdown-signupForm,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form {
+  background-color: #1d2a35 !important;
+  border-color: #38444d !important;
+  color: #fff !important;
+}
+@media (max-width: 500px) {
+  #tnb-login-dropdown-loginForm,
+  #tnb-signup-dropdown-signupForm,
+  #tnb-signup-dropdown-emailConfirmationForm,
+  #tnb-signup-dropdown-reset-password-form,
+  #tnb-signup-dropdown-confirm-reset-password-form {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container {
+  overflow-x: hidden;
+  --primary: #04aa6d;
+  --primary-dark: #059862;
+  padding: 16px 24px;
+  margin: 0 auto;
+  transition: transform 0.3s;
+  background-color: #fff;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid #F5F5F5;
+}
+@media (max-width: 500px) {
+  #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container,
+  #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container,
+  #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container,
+  #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container,
+  #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container,
+  #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container,
+  #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container,
+  #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container,
+  #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container,
+  #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container {
+    width: 100vw;
+    border-radius: 0px;
+    height: 100vh;
+  }
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .auth-header,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .auth-header,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .auth-header {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .auth-header .auth-header-logo > svg > path,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .auth-header .auth-header-logo > svg > path {
+  fill: #fff;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .auth-title,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .auth-title,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .auth-title {
+  color: #333333;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+  font-synthesis: none !important;
+  white-space: normal;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .auth-title,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .auth-title {
+  color: #fff !important;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .auth-subtitle,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .auth-subtitle,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .auth-subtitle {
+  color: var(--text-light);
+  font-size: 16px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #loginFormElement,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #loginFormElement,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #loginFormElement {
+  margin-top: 28px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message-title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .tnb-email-verification-message-group .verify-email-message,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .tnb-email-verification-message-group .verify-email-message {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0px;
+  white-space: normal;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #tnb-resend-link,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #tnb-resend-link,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #tnb-resend-link {
+  border: 1px solid #04AA6D;
+  background-color: #FFFFFF;
+  color: #04AA6D;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #tnb-resend-link:hover,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #tnb-resend-link:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #tnb-resend-link:hover {
+  background-color: #04AA6D;
+  color: #FFFFFF;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #tnb-verification-status,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status-reset-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0px;
+  border-radius: 4px;
+  white-space: normal;
+  text-align: left;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.success,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.success {
+  color: #04AA6D;
+  border: 1px solid #04AA6D;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #tnb-verification-status-reset-password.error,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #tnb-verification-status-reset-password.error {
+  color: #E51400;
+  border: 1px solid #E51400;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .reset-password-message,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .reset-password-message,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .reset-password-message {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  white-space: normal;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group {
+  margin-bottom: 20px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group.tnb-login-dropdown-password-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group.tnb-login-dropdown-password-container {
+  margin-bottom: 8px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group input::placeholder {
+  text-transform: none !important;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group input:not([type=checkbox]),
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group input:not([type=checkbox]) {
+  height: 48px;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #FAFAFA;
+  border: 1px solid #F1F1F1;
+  border-radius: 4px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group input::placeholder,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group input::placeholder {
+  color: #333333;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group .password-input-container,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group .password-input-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group .password-input-container {
+  position: relative;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group #tnb-confirm-reset-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group #tnb-signup-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group #tnb-login-dropdown-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group #tnb-confirm-reset-password {
+  padding-right: 32px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group .toggle-password-visibility,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility {
+  position: absolute;
+  right: 10px;
+  top: 25%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .form-group .toggle-password-visibility > svg,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group #toggle-password-visibility > svg,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .form-group .toggle-password-visibility > svg {
+  pointer-events: none;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container label,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container label,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container label,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container label,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container label,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container label,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container label,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container label,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container label,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container label {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container input,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container input,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container input,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container input,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container input,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container input,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container input,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container input,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container input,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container input:focus,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container input:focus,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container input:focus,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container input:focus,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container input:focus,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container input:focus,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container input:focus,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container input:focus,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container input:focus,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container input:focus {
+  outline: none;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container button[type=submit],
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container button[type=submit],
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container button[type=submit] {
+  background: var(--primary);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 500;
+  transition: all 0.2s;
+  position: relative;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container button[type=submit]:hover,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container button[type=submit]:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container button[type=submit]:hover {
+  background: var(--primary-dark);
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container #tnb-return-to-sign-in-after-success,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container #tnb-return-to-sign-in-after-success {
+  background: var(--primary);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 500;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .status,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .status,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .status,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .status,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .status,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .status,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .status,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .status,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .status,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .status {
+  margin: 0.6rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: none;
+  font-size: 0.8rem;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .status.error,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .status.error,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .status.error,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .status.error,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .status.error,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .status.error,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .status.error,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .status.error,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .status.error,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .status.error {
+  background: #ffebe9;
+  color: #c00;
+  border: 1px solid #ffddd9;
+  display: block;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .status.success,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .status.success,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .status.success,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .status.success,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .status.success,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .status.success,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .status.success,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .status.success,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .status.success,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .status.success {
+  background: #e7f6e7;
+  color: #006600;
+  border: 1px solid #c6e7c6;
+  display: block;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .checkbox-group,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .checkbox-group,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .checkbox-group input[type=checkbox],
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .checkbox-group input[type=checkbox] {
+  width: auto;
+  accent-color: #04AA6D;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .checkbox-label,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .checkbox-label,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label {
+  font-size: 12px;
+  color: rgba(51, 51, 51, 0.6);
+  font-weight: 400;
+  white-space: normal;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .checkbox-label,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label {
+  color: #fff;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .checkbox-label a,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .checkbox-label a,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label a {
+  color: rgba(51, 51, 51, 0.6);
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .checkbox-label a,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .checkbox-label a {
+  color: #fff;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .g-recaptcha-container,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .g-recaptcha-container,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .g-recaptcha-container {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .grecaptcha-badge,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .grecaptcha-badge,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .grecaptcha-badge {
+  visibility: hidden !important;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .recaptcha-terms,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .recaptcha-terms,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-terms {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-buttons,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-buttons,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-buttons {
+  margin-top: 20px;
+  margin-bottom: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-button,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-button,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-button,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-button,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-button,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-button,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-button,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-button,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-button,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-button {
+  display: inline-block;
+  width: 80px;
+  height: 48px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #F1F1F1;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  margin-right: 6px;
+}
+@media (max-width: 400px) {
+  #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-button,
+  #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-button {
+    width: 74px;
+  }
+}
+@media (max-width: 350px) {
+  #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-button,
+  #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-button,
+  #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-button {
+    width: 64px;
+  }
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-button:hover,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-button:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-button:hover {
+  background: #FAFAFA;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-button.github > svg > path,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-button.github > svg > path {
+  fill: #fff;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-button:last-child,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-button:last-child,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-button:last-child {
+  margin-right: 0;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .social-button svg,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .social-button svg,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .social-button svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  display: inline-block;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .divider,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .divider,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .divider,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .divider,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .divider,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .divider,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .divider,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .divider,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .divider,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .divider {
+  position: relative;
+  text-align: center;
+  color: #EBEBEB;
+  font-size: 0.8rem;
+  margin: 24px 0;
+  height: 1px;
+  background: #EBEBEB;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .divider span,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .divider span,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .divider span,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .divider span,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .divider span,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .divider span,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .divider span,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .divider span,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .divider span,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .divider span {
+  position: relative;
+  display: inline-block;
+  top: -12px;
+  padding: 0 0.75rem;
+  background: #fff;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .divider span,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .divider span,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .divider span {
+  background: #1d2a35;
+  color: #fff;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .switch-form,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .switch-form,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .switch-form {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: rgba(51, 51, 51, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .switch-form,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .switch-form {
+  color: #fff !important;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .switch-form a,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .switch-form a,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .switch-form a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .switch-form a:hover,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .switch-form a:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .switch-form a:hover {
+  text-decoration: underline;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .switch-form.reset-password-switch-form,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .switch-form.reset-password-switch-form {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .tnb-return-to-sign-in {
+  color: rgba(51, 51, 51, 0.6) !important;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .tnb-return-to-sign-in,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .tnb-return-to-sign-in {
+  color: #ffffff !important;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .tnb-return-to-sign-in-text,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .tnb-return-to-sign-in-text {
+  color: var(--primary);
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .forgot-password,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .forgot-password,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .forgot-password {
+  text-align: left;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  font-synthesis: none !important;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .forgot-password,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .forgot-password {
+  color: #ffffff;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .forgot-password:hover,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .forgot-password:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .forgot-password:hover {
+  text-decoration: underline;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .button-text,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .button-text,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .button-text,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .button-text,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .button-text,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .button-text,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .button-text,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .button-text,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .button-text,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .button-text {
+  transition: opacity 0.2s;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .button-loader,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .button-loader,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .button-loader {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: tnb-spin 0.8s linear infinite;
+}
+@keyframes tnb-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .recaptcha-notice,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .recaptcha-notice,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-notice {
+  white-space: normal;
+  font-size: 10px;
+  color: #999;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  line-height: 12px;
+  opacity: 0.8;
+  text-align: center;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .recaptcha-notice a,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .recaptcha-notice a,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-notice a {
+  color: #999;
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 1px;
+}
+#tnb-login-dropdown-loginForm .tnb-login-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-login-dropdown-loginForm .tnb-signup-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-signupForm .tnb-login-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-signupForm .tnb-signup-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-login-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-emailConfirmationForm .tnb-signup-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-login-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-login-dropdown-form-container .recaptcha-notice a:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .tnb-signup-dropdown-form-container .recaptcha-notice a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover,
+#tnb-signup-dropdown-signupForm .password-requirements-popover,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover {
+  position: absolute;
+  left: 0;
+  top: 110%;
+  width: fit-content;
+  background: #fff;
+  border: 1px solid #e3e6e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 14px 18px 10px 18px;
+  z-index: 100;
+  font-size: 14px;
+  color: #333;
+  margin-top: 4px;
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 1;
+  pointer-events: auto;
+  display: none;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover::before,
+#tnb-signup-dropdown-signupForm .password-requirements-popover::before,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover::before,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover::before,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  width: 0;
+  height: 0;
+  z-index: 101;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.06));
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover::after,
+#tnb-signup-dropdown-signupForm .password-requirements-popover::after,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover::after,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover::after,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 9px 9px 9px;
+  border-style: solid;
+  border-color: transparent transparent #e3e6e8 transparent;
+  width: 0;
+  height: 0;
+  z-index: 100;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover {
+  background: #1d2a35 !important;
+  border-color: #38444d !important;
+  color: #fff !important;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover::before,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover::before,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover::before,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover::before,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover::before {
+  border-color: transparent transparent #1d2a35 !important;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover::after,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover::after,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover::after,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover::after,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover::after {
+  border-color: transparent transparent #38444d !important;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover.active,
+#tnb-signup-dropdown-signupForm .password-requirements-popover.active,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover.active,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover.active,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover.active {
+  background-color: #fff !important;
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover ul,
+#tnb-signup-dropdown-signupForm .password-requirements-popover ul,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover ul,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover ul,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover li,
+#tnb-signup-dropdown-signupForm .password-requirements-popover li,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover li,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover li,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #888;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover li.passed,
+#tnb-signup-dropdown-signupForm .password-requirements-popover li.passed,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover li.passed,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover li.passed,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover li.passed {
+  color: #04aa6d;
+  font-weight: 500;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover .checkmark,
+#tnb-signup-dropdown-signupForm .password-requirements-popover .checkmark,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover .checkmark,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover .checkmark,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover .checkmark {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e7f6e7;
+  color: #04aa6d;
+  text-align: center;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: bold;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover li.passed .checkmark,
+#tnb-signup-dropdown-signupForm .password-requirements-popover li.passed .checkmark,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover li.passed .checkmark,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover li.passed .checkmark,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover li.passed .checkmark {
+  background: #04aa6d;
+  color: #fff;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover {
+  background: #1d2a35 !important;
+  border-color: #38444d !important;
+  color: #fff !important;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover li,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover li,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover li,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover li,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover li {
+  color: #bbb;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover li.passed,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover li.passed,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover li.passed,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover li.passed,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover li.passed {
+  color: #04aa6d;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover .checkmark,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover .checkmark,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover .checkmark,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover .checkmark,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover .checkmark {
+  background: #38444d;
+  color: #04aa6d;
+}
+.darkpagetheme #tnb-login-dropdown-loginForm .password-requirements-popover li.passed .checkmark,
+.darkpagetheme #tnb-signup-dropdown-signupForm .password-requirements-popover li.passed .checkmark,
+.darkpagetheme #tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover li.passed .checkmark,
+.darkpagetheme #tnb-signup-dropdown-reset-password-form .password-requirements-popover li.passed .checkmark,
+.darkpagetheme #tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover li.passed .checkmark {
+  background: #04aa6d;
+  color: #fff;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover.fade-out,
+#tnb-signup-dropdown-signupForm .password-requirements-popover.fade-out,
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover.fade-out,
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover.fade-out,
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover.fade-out {
+  opacity: 0 !important;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+#tnb-login-dropdown-loginForm .password-requirements-popover:not(.active):not(.fade-out),
+#tnb-signup-dropdown-signupForm .password-requirements-popover:not(.active):not(.fade-out),
+#tnb-signup-dropdown-emailConfirmationForm .password-requirements-popover:not(.active):not(.fade-out),
+#tnb-signup-dropdown-reset-password-form .password-requirements-popover:not(.active):not(.fade-out),
+#tnb-signup-dropdown-confirm-reset-password-form .password-requirements-popover:not(.active):not(.fade-out) {
+  display: none;
+}
+#tnb-login-dropdown-loginForm .dropdown-close-btn,
+#tnb-signup-dropdown-signupForm .dropdown-close-btn,
+#tnb-signup-dropdown-emailConfirmationForm .dropdown-close-btn,
+#tnb-signup-dropdown-reset-password-form .dropdown-close-btn,
+#tnb-signup-dropdown-confirm-reset-password-form .dropdown-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+#tnb-login-dropdown-loginForm .dropdown-close-btn:hover, #tnb-login-dropdown-loginForm .dropdown-close-btn:focus,
+#tnb-signup-dropdown-signupForm .dropdown-close-btn:hover,
+#tnb-signup-dropdown-signupForm .dropdown-close-btn:focus,
+#tnb-signup-dropdown-emailConfirmationForm .dropdown-close-btn:hover,
+#tnb-signup-dropdown-emailConfirmationForm .dropdown-close-btn:focus,
+#tnb-signup-dropdown-reset-password-form .dropdown-close-btn:hover,
+#tnb-signup-dropdown-reset-password-form .dropdown-close-btn:focus,
+#tnb-signup-dropdown-confirm-reset-password-form .dropdown-close-btn:hover,
+#tnb-signup-dropdown-confirm-reset-password-form .dropdown-close-btn:focus {
+  background: #f3f3f3;
+  outline: none;
+}
+#tnb-login-dropdown-loginForm .dropdown-close-btn svg,
+#tnb-signup-dropdown-signupForm .dropdown-close-btn svg,
+#tnb-signup-dropdown-emailConfirmationForm .dropdown-close-btn svg,
+#tnb-signup-dropdown-reset-password-form .dropdown-close-btn svg,
+#tnb-signup-dropdown-confirm-reset-password-form .dropdown-close-btn svg {
+  display: block;
+}
+ç„æ™´       i*yi*yHå<oi*{‘   ]    O^partitionKey=%28https%2Cw3schools.com%29,:https://nav.w3schools.com/floating-components.css necko:classified 1 strongly-framed 1 security-info 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 request-method GET request-Accept-Encoding gzip, deflate, br, zstd response-head HTTP/2 200 
+content-type: text/css
+content-length: 105905
+date: Sat, 29 Nov 2025 04:35:26 GMT
+last-modified: Wed, 19 Nov 2025 09:59:05 GMT
+x-amz-server-side-encryption: AES256
+accept-ranges: bytes
+server: AmazonS3
+etag: "a4784065e9bdb7389bd842d555a985b7"
+x-cache: Hit from cloudfront
+via: 1.1 e7bdefe3e4c3c4e34d660131a12e1616.cloudfront.net (CloudFront)
+x-amz-cf-pop: HYD57-P6
+x-amz-cf-id: YWVUiho3AOhVxFGcnksDD2bXIs13t-l0Vh753yJE7IXLcdlxpD_95Q==
+age: 248
+x-frame-options: SAMEORIGIN
+content-security-policy: frame-ancestors https://profile.w3schools.com https://my-learning.w3schools.com https://spaces.w3schools.com https://billing.w3schools.com https://order.w3schools.com https://pathfinder.w3schools.com https://campus.w3schools.com
+cache-control: public, max-age=900, must-revalidate
+vary: Accept-Encoding, Origin
+X-Firefox-Spdy: h2
+ original-response-headers content-type: text/css
+content-length: 105905
+date: Sat, 29 Nov 2025 04:35:26 GMT
+last-modified: Wed, 19 Nov 2025 09:59:05 GMT
+x-amz-server-side-encryption: AES256
+accept-ranges: bytes
+server: AmazonS3
+etag: "a4784065e9bdb7389bd842d555a985b7"
+vary: Accept-Encoding
+x-cache: Hit from cloudfront
+via: 1.1 e7bdefe3e4c3c4e34d660131a12e1616.cloudfront.net (CloudFront)
+x-amz-cf-pop: HYD57-P6
+x-amz-cf-id: YWVUiho3AOhVxFGcnksDD2bXIs13t-l0Vh753yJE7IXLcdlxpD_95Q==
+age: 248
+x-frame-options: SAMEORIGIN
+content-security-policy: frame-ancestors https://profile.w3schools.com https://my-learning.w3schools.com https://spaces.w3schools.com https://billing.w3schools.com https://order.w3schools.com https://pathfinder.w3schools.com https://campus.w3schools.com
+cache-control: public, max-age=900, must-revalidate
+vary: Origin
+X-Firefox-Spdy: h2
+ ctid 5 uncompressed-len 0 net-response-time-onstart 291 net-response-time-onstop 291  ±
