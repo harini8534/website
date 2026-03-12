@@ -1,0 +1,22 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  collections:
+    - amazon.aws
+
+  tasks:
+    - name: Create EC2 instance
+      ec2_instance:
+        name: my-ec2-instance
+        key_name: my-keypair        # must exist in AWS
+        instance_type: t2.micro
+        image_id: ami-   # Example Amazon Linux AMI
+        region: ap-south-1
+        wait: yes
+        count: 1
+
+    - name: Create S3 Bucket
+      s3_bucket:
+        name: my-ansible-demo-bucket-12345
+        region: ap-south-1
+        state: present

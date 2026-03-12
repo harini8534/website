@@ -1,0 +1,31 @@
+pipeline {
+
+agent any
+
+tools {
+maven 'Maven'
+}
+
+stages {
+
+stage('Clone Repo') {
+steps {
+git 'https://github.com/username/applet-project.git'
+}
+}
+
+stage('Build Maven') {
+steps {
+bat 'mvn clean package'
+}
+}
+
+stage('Deploy to Tomcat') {
+steps {
+bat 'copy target\\applet-project.war C:\\tomcat\\webapps'
+}
+}
+
+}
+
+}
